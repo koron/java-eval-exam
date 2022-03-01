@@ -11,6 +11,7 @@ repositories {
 dependencies {
   implementation "com.udojava:EvalEx:2.7"
   implementation "org.apache.commons:commons-jexl3:3.2.1"
+  implementation files("libs/jep-java-4.0-trial.jar")
 }
 
 jmh {
