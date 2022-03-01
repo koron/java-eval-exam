@@ -23,14 +23,12 @@ public class Eval_02_Eval {
             .eval();
     }
 
-    final static JexlEngine engine = new JexlBuilder().create();
-
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
     public void jexlEval() {
         var eng = new JexlBuilder().create();
-        var ex = engine.createExpression("a*x+b");
+        var ex = eng.createExpression("a*x+b");
         var ctx = new MapContext();
         ctx.set("a", 2.0f);
         ctx.set("x", 10.0f);
