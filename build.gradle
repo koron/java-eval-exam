@@ -12,6 +12,13 @@ dependencies {
   implementation "com.udojava:EvalEx:2.7"
   implementation "org.apache.commons:commons-jexl3:3.2.1"
   implementation files("libs/jep-java-4.0-trial.jar")
+
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
 }
 
 jmh {
