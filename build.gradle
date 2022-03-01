@@ -1,0 +1,20 @@
+// vim:set ts=8 sts=2 sw=2 tw=0:
+plugins {
+  id "me.champeau.jmh" version "0.6.6"
+}
+
+repositories {
+  mavenCentral()
+  google()
+}
+
+dependencies {
+  implementation "com.udojava:EvalEx:2.7"
+  implementation "org.apache.commons:commons-jexl3:3.2.1"
+}
+
+jmh {
+  fork = 1
+  warmup = "3s"
+  warmupIterations = 1
+}
