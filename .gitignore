@@ -8,3 +8,5 @@ build
 
 # Download a copy from: http://www.singularsys.com/jep/download-trial.php
 libs/jep-java-4.0-trial.jar
+
+tmp/
