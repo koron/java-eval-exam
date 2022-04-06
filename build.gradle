@@ -17,6 +17,10 @@ dependencies {
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.named('test') {
   useJUnitPlatform()
 }
@@ -25,4 +29,8 @@ jmh {
   fork = 1
   warmup = "3s"
   warmupIterations = 1
+  includes = [ '\\.eval\\.' ]
+  //includes = [ 'Eval_04.*evalexEval' ]
+
+  //includes = [ 'EvalSegmentJEP1.*' ]
 }
