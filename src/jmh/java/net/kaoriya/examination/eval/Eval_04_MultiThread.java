@@ -1,4 +1,3 @@
-
 package net.kaoriya.examination.eval;
 
 import org.openjdk.jmh.annotations.*;

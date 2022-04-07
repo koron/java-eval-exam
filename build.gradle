@@ -31,6 +31,7 @@ jmh {
   warmupIterations = 1
   includes = [ '\\.eval\\.' ]
   //includes = [ 'Eval_04.*evalexEval' ]
+  //includes = [ 'Eval_05_' ]
 
   //includes = [ 'EvalSegmentJEP1.*' ]
 }
