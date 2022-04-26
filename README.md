@@ -65,3 +65,38 @@ Under correct object reusing strategy...
 
 * Jep is faster x10 than EvalEx
 * Jexl is falster x1.65 than EvalEx
+
+## Extra investigations
+
+### Synchronize eval engine
+
+```
+Eval_05_MultiThread_Reuse.evalexEval2  thrpt    5    3934125.081 ±   246037.486  ops/s
+Eval_05_MultiThread_Reuse.evalexEval4  thrpt    5    7194421.140 ±   806521.832  ops/s
+Eval_05_MultiThread_Reuse.evalexEval8  thrpt    5   13353807.796 ±   992707.901  ops/s
+Eval_06_MultiThread_Sync.evalexEval2   thrpt    5    1727998.310 ±    65808.053  ops/s
+Eval_06_MultiThread_Sync.evalexEval4   thrpt    5    1498609.159 ±   133966.243  ops/s
+Eval_06_MultiThread_Sync.evalexEval8   thrpt    5    1736502.174 ±    77143.004  ops/s
+
+Eval_05_MultiThread_Reuse.jepEval2     thrpt    5   44485078.375 ±  4880035.592  ops/s
+Eval_05_MultiThread_Reuse.jepEval4     thrpt    5   83766744.245 ± 13306784.108  ops/s
+Eval_05_MultiThread_Reuse.jepEval8     thrpt    5  148182175.981 ± 13031574.820  ops/s
+Eval_06_MultiThread_Sync.jepEval2      thrpt    5    7718265.287 ±   185483.343  ops/s
+Eval_06_MultiThread_Sync.jepEval4      thrpt    5    8491847.583 ±  2186456.327  ops/s
+Eval_06_MultiThread_Sync.jepEval8      thrpt    5    7918188.215 ±   518408.885  ops/s
+
+Eval_05_MultiThread_Reuse.jexlEval2    thrpt    5    6797417.324 ±   480425.452  ops/s
+Eval_05_MultiThread_Reuse.jexlEval4    thrpt    5   12997428.096 ±   952946.391  ops/s
+Eval_05_MultiThread_Reuse.jexlEval8    thrpt    5   23426943.729 ±   487036.764  ops/s
+Eval_06_MultiThread_Sync.jexlEval2     thrpt    5    2599733.588 ±    97252.541  ops/s
+Eval_06_MultiThread_Sync.jexlEval4     thrpt    5    2593430.000 ±   130930.024  ops/s
+Eval_06_MultiThread_Sync.jexlEval8     thrpt    5    2609402.923 ±   403389.896  ops/s
+```
+
+論理的には1スレッド相当になると推測される。
+
+EvalExとJEXLは1スレッド相当より若干劣る性能になる。
+劣化分はsynchronize待ちのオーバーヘッドだと考えられる。
+
+Jepの劣化は1スレッドを遥かに下回り、1/3程度になる。
+妥当な説明は思いつかない。

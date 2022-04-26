@@ -32,6 +32,7 @@ jmh {
   includes = [ '\\.eval\\.' ]
   //includes = [ 'Eval_04.*evalexEval' ]
   //includes = [ 'Eval_05_' ]
+  //includes = [ 'Eval_0[56]_' ]
 
   //includes = [ 'EvalSegmentJEP1.*' ]
 }
