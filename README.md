@@ -100,3 +100,17 @@ EvalExとJEXLは1スレッド相当より若干劣る性能になる。
 
 Jepの劣化は1スレッドを遥かに下回り、1/3程度になる。
 妥当な説明は思いつかない。
+
+### Jep with ObjectPool and ThreadLocal
+
+```
+Benchmark                      Mode  Cnt          Score         Error  Units
+Eval_07_Pooling.jepEval1      thrpt    5    4763126.519 ±   66826.035  ops/s
+Eval_07_Pooling.jepEval2      thrpt    5    3728908.486 ±  810879.410  ops/s
+Eval_07_Pooling.jepEval4      thrpt    5    3517816.961 ±  642397.628  ops/s
+Eval_07_Pooling.jepEval8      thrpt    5    3554098.166 ±  322971.449  ops/s
+Eval_08_ThreadLocal.jepEval1  thrpt    5   17144557.276 ±  535933.954  ops/s
+Eval_08_ThreadLocal.jepEval2  thrpt    5   33020816.072 ± 4084808.486  ops/s
+Eval_08_ThreadLocal.jepEval4  thrpt    5   61815492.997 ± 5512164.309  ops/s
+Eval_08_ThreadLocal.jepEval8  thrpt    5  119172558.053 ± 4513534.294  ops/s
+```
