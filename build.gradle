@@ -12,6 +12,9 @@ dependencies {
   implementation "com.udojava:EvalEx:2.7"
   implementation "org.apache.commons:commons-jexl3:3.2.1"
   implementation 'org.apache.commons:commons-pool2:2.11.1'
+  implementation 'com.github.chrisvest:stormpot:3.1'
+  implementation 'cn.danielw:fast-object-pool:2.2.1'
+
   implementation files("libs/jep-java-4.0-trial.jar")
 
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
@@ -34,7 +37,7 @@ jmh {
   //includes = [ 'Eval_04.*evalexEval' ]
   //includes = [ 'Eval_05_' ]
   //includes = [ 'Eval_0[56]_' ]
-  //includes = [ 'Eval_0[78]_' ]
+  //includes = [ 'Eval_0[78]' ]
 
   //includes = [ 'EvalSegmentJEP1.*' ]
 }

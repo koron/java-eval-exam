@@ -101,16 +101,33 @@ EvalExとJEXLは1スレッド相当より若干劣る性能になる。
 Jepの劣化は1スレッドを遥かに下回り、1/3程度になる。
 妥当な説明は思いつかない。
 
-### Jep with ObjectPool and ThreadLocal
+### Jep with Object pool and ThreadLocal
+
+* Object pool implementation
+  * Common pool 2 (07)
+  * Stormpot pool (07a)
+  * Fast object pool (07b)
+* ThreadLocal (08)
 
 ```
-Benchmark                      Mode  Cnt          Score         Error  Units
-Eval_07_Pooling.jepEval1      thrpt    5    4763126.519 ±   66826.035  ops/s
-Eval_07_Pooling.jepEval2      thrpt    5    3728908.486 ±  810879.410  ops/s
-Eval_07_Pooling.jepEval4      thrpt    5    3517816.961 ±  642397.628  ops/s
-Eval_07_Pooling.jepEval8      thrpt    5    3554098.166 ±  322971.449  ops/s
-Eval_08_ThreadLocal.jepEval1  thrpt    5   17144557.276 ±  535933.954  ops/s
-Eval_08_ThreadLocal.jepEval2  thrpt    5   33020816.072 ± 4084808.486  ops/s
-Eval_08_ThreadLocal.jepEval4  thrpt    5   61815492.997 ± 5512164.309  ops/s
-Eval_08_ThreadLocal.jepEval8  thrpt    5  119172558.053 ± 4513534.294  ops/s
+Benchmark                        Mode  Cnt          Score          Error  Units
+Eval_07_Pooling.jepEval1        thrpt    5    4749310.534 ±   227262.368  ops/s
+Eval_07_Pooling.jepEval2        thrpt    5    4924929.663 ±  4762844.461  ops/s
+Eval_07_Pooling.jepEval4        thrpt    5    3284716.580 ±   338783.035  ops/s
+Eval_07_Pooling.jepEval8        thrpt    5    3284722.780 ±   398465.344  ops/s
+
+Eval_07a_Pooling.stormpotEval1  thrpt    5   11545564.876 ±   461323.591  ops/s
+Eval_07a_Pooling.stormpotEval2  thrpt    5   22952489.758 ±   390699.458  ops/s
+Eval_07a_Pooling.stormpotEval4  thrpt    5   43362913.964 ±   867632.228  ops/s
+Eval_07a_Pooling.stormpotEval8  thrpt    5   81609398.122 ± 22578299.321  ops/s
+
+Eval_07b_Pooling.eval1          thrpt    5   12176898.786 ±   332250.566  ops/s
+Eval_07b_Pooling.eval2          thrpt    5   24112828.849 ±  1697339.810  ops/s
+Eval_07b_Pooling.eval4          thrpt    5   43880407.492 ±  2501592.022  ops/s
+Eval_07b_Pooling.eval8          thrpt    5   30102524.164 ± 11792376.598  ops/s
+
+Eval_08_ThreadLocal.jepEval1    thrpt    5   16837388.232 ±   898890.114  ops/s
+Eval_08_ThreadLocal.jepEval2    thrpt    5   32229808.054 ±  3430331.533  ops/s
+Eval_08_ThreadLocal.jepEval4    thrpt    5   59676778.928 ±  2567407.760  ops/s
+Eval_08_ThreadLocal.jepEval8    thrpt    5  118469039.264 ±  4723494.010  ops/s
 ```
