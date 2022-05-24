@@ -38,6 +38,7 @@ jmh {
   //includes = [ 'Eval_05_' ]
   //includes = [ 'Eval_0[56]_' ]
   //includes = [ 'Eval_0[78]' ]
+  //includes = [ 'Eval_07[ab]_' ]
 
   //includes = [ 'EvalSegmentJEP1.*' ]
 }

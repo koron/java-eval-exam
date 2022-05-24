@@ -43,9 +43,9 @@ public class Eval_07b_Pooling {
 
     ObjectPool<Evaluator> pool = new ObjectPool<>(
             new PoolConfig()
-                .setPartitionSize(5)
-                .setMaxSize(10)
-                .setMinSize(5)
+                .setPartitionSize(8)
+                .setMaxSize(8)
+                .setMinSize(1)
                 .setMaxIdleMilliseconds(300*1000),
             new ObjectFactory<Evaluator>() {
                 @Override
